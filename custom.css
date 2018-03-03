@@ -1,0 +1,14 @@
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;"
+}
+
+.dl-horizontal dt {
+  width: auto;
+  padding-right: 5px;
+}
+
+.dl-horizontal dd {
+  margin-left: 0;
+}

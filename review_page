@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link href="/style.css" rel="stylesheet">
+    <script>sreview_viddata = {"corrdescs":{"audio_channel":"Audio channel","length_adj":"Length adjustment","offset_audio":"Audio offset","offset_start":"Time offset"},"corrhelps":{"audio_channel":"Use 0 for the main channel, 1 for the alternate channel, or 2 for both channels mixed together","length_adj":"Set a relative adjustment value for the talk here, specified in seconds. To shorten the talk length, enter a negative value; to increase the talk length, enter a positive value","offset_audio":"Use for fixing A\/V sync issues. Positive delays audio, negative delays video. Seconds; may be fractional.","offset_start":"Use to adjust the time position of this talk. Negative values move the start to earlier in time, positive to later. Note that both start and end position are updated; if the end should not be updated, make sure to also set the \"Length adjustment\" value. Seconds; may be fractional."},"corrvals":{"audio_channel":0,"length_adj":0,"offset_audio":0,"offset_start":0},"mainlen":600,"postlen":0,"prelen":0};</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <!--script src='/mangler.js'></script-->
+  </head>
+  <body>
+  <div class="container">
+  <h1>Preview recording</h1>
+<script>
+/* @licstart The following is the entire license notice for this
+ * project, including all its JavaScript.
+ *
+ * Sreview, a web-based video review and transcoding system.
+ * Copyright (c) 2016-2017 Wouter Verhelst <w@uter.be>
+ *
+ * Sreview is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation; either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Affero General Public License for more detilas.
+ *
+ * You should have received a copy of the GNU Affero General Public
+ * License along with Sreview. If not, see
+ * <http://www.gnu.org/licenses/>.
+ *
+ * @licend The above is the entire license notice for this project,
+ * including all its JavaScript.
+ */
+function formitems(which) {
+	var disableval = true;
+	if(which === 'standard') {
+		disableval = false;
+	}
+	$('#audio_channel').prop("disabled", disableval);
+	$('#length_adj').prop("disabled", disableval);
+	$('#offset_audio').prop("disabled", disableval);
+	$('#offset_start').prop("disabled", disableval);
+	if(which === 'comments') {
+		disableval = false;
+	} else {
+		disableval = true;
+	}
+	$('#comment_text').prop("disabled", disableval);
+	if(which === 'standard') {
+		$('#length_adj').val(sreview_viddata.get_length_adjust());
+		$('#offset_start').val(sreview_viddata.get_start_offset());
+	}
+}
+function setPoint(vid, startstop, time) {
+	sreview_viddata.set_point(vid, startstop, time);
+	$('#standard').prop("checked", true);
+	formitems('standard');
+};
+function edit_offset_start(val) {
+	sreview_viddata.set_start_offset(val);
+};
+function edit_length_adj(val) {
+	sreview_viddata.set_length_adj(val);
+};
+</script>
+<p>This video is for the talk entitled <q><strong>Intro to the Software Defined Radio Track</strong></q> by <strong>Philip Balister, Martin Braun and Sylvain Munaut</strong> which happened in room <strong>AW1.120</strong> from <strong>2017-02-04 10:30:00+01</strong> to <strong>2017-02-04 10:40:00+01</strong> at <strong>FOSDEM 2017</strong></p>
+<p>To be able to see this preview in your browser, you must use an HTML5 browser which supports the WebM format. Alternatively, here is a <a href='/video/1/2017-02-04/A/introsdr.mp4'>direct download <span class="glyphicon glyphicon-download"></span></a> of the same file.</p>
+<p>
+<div class="row">
+  <div class="col-sm-6">
+    <p>In case it is needed (and they were recorded), these are the 20 minutes before...:</p>
+    <div class="embed-responsive embed-responsive-16by9"><video id="video-pre" class="embed-responsive-item" controls="controls" src="/video/1/2017-02-04/A/introsdr-pre.mp4?date=Thu Feb 22 18:22:09 2018"></video></div>
+    <div class="btn-group btn-group-justified">
+      <div class="btn-group"><button class="btn" onclick="setPoint('pre', 'start', document.getElementById('video-pre').currentTime);">Take start point</button></div>
+      <div class="btn-group"><button class="btn" onclick="setPoint('pre', 'end', document.getElementById('video-pre').currentTime);">Take end point</button></div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <p>... and after this talk:</p>
+    <div class="embed-responsive embed-responsive-16by9"><video id="video-post" class="embed-responsive-item" controls="controls" src="/video/1/2017-02-04/A/introsdr-post.mp4?date=Thu Feb 22 18:22:09 2018"></video></div>
+    <div class="btn-group btn-group-justified">
+      <div class="btn-group"><button class="btn" onclick="setPoint('post', 'start', document.getElementById('video-post').currentTime);">Take start point</button></div>
+      <div class="btn-group"><button class="btn" onclick="setPoint('post', 'end', document.getElementById('video-post').currentTime);">Take end point</button></div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <p>Main video:</p>
+    <div class="embed-responsive embed-responsive-16by9"><video id="video-main" class="embed-responsive-item" controls="controls" autoplay="autoplay" src="/video/1/2017-02-04/A/introsdr.mp4?date=Thu Feb 22 18:22:09 2018"></video></div>
+    <div class="btn-group btn-group-justified">
+      <div class="btn-group"><button class="btn" onclick="setPoint('main', 'start', document.getElementById('video-main').currentTime);">Take start point</button></div>
+      <div class="btn-group"><button class="btn" onclick="setPoint('main', 'end', document.getElementById('video-main').currentTime);">Take end point</button></div>
+    </div>
+  </div>
+</div>
+<div class="well"><p>Making any changes in the form below does <em>not</em> remove the originals. Nothing you do here can result in data loss!</p></div>
+<p>The current state of this talk is <em>done</em>.</p>
+<form action="/admin/talk_update" class="form-horizontal" method="POST">
+  <input name="talk" type="hidden" value="138">
+  <fieldset>
+    <legend>Reset</legend>
+    <div class="form-group">
+      <input ="" id="reset" name="choice" onchange="formitems(&#39;reset&#39;)" type="radio" value="reset">
+      <label class="minor" for="reset">Do not make changes, do not notify video team; set the state back to &quot;preview&quot;.</label>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>OK</legend>
+    <div class="form-group">
+      <input disabled="disabled" id="ok" name="choice" onchange="formitems(&#39;ok&#39;)" type="radio" value="ok">
+      <label for="ok">The current representation of the &quot;main&quot; video above looks OK and contains all content which it should contain; please transcode that at high quality and release it.</label>
+    </div>
+  </fieldset>
+  <fieldset>
+    <legend>Common fixes</legend>
+    <div class="form-group">
+      <input disabled="disabled" id="standard" name="choice" onchange="formitems(&#39;standard&#39;)" type="radio" value="standard">
+      <label for="standard">This preview has some issues. Please fix the following and generate all three video above anew:</label>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="correction_audio_channel">Audio channel</label>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <input class="form-control" disabled="disabled" id="audio_channel" name="correction_audio_channel" onchange="edit_audio_channel(this.value)" type="text" value="0">
+          <div class="input-group-btn">
+            <a class="btn btn-default" data-placement="left" data-toggle="popover" data-content="Use 0 for the main channel, 1 for the alternate channel, or 2 for both channels mixed together" title="Audio channel">
+<i class="glyphicon glyphicon-question-sign"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="correction_length_adj">Length adjustment</label>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <input class="form-control" disabled="disabled" id="length_adj" name="correction_length_adj" onchange="edit_length_adj(this.value)" type="text" value="0">
+          <div class="input-group-btn">
+            <a class="btn btn-default" data-placement="left" data-toggle="popover" data-content="Set a relative adjustment value for the talk here, specified in seconds. To shorten the talk length, enter a negative value; to increase the talk length, enter a positive value" title="Length adjustment">
+<i class="glyphicon glyphicon-question-sign"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="correction_offset_audio">Audio offset</label>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <input class="form-control" disabled="disabled" id="offset_audio" name="correction_offset_audio" onchange="edit_offset_audio(this.value)" type="text" value="0">
+          <div class="input-group-btn">
+            <a class="btn btn-default" data-placement="left" data-toggle="popover" data-content="Use for fixing A/V sync issues. Positive delays audio, negative delays video. Seconds; may be fractional." title="Audio offset">
+<i class="glyphicon glyphicon-question-sign"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="correction_offset_start">Time offset</label>
+      <div class="col-sm-10">
+        <div class="input-group">
+          <input class="form-control" disabled="disabled" id="offset_start" name="correction_offset_start" onchange="edit_offset_start(this.value)" type="text" value="0">
+          <div class="input-group-btn">
+            <a class="btn btn-default" data-placement="left" data-toggle="popover" data-content="Use to adjust the time position of this talk. Negative values move the start to earlier in time, positive to later. Note that both start and end position are updated; if the end should not be updated, make sure to also set the &quot;Length adjustment&quot; value. Seconds; may be fractional." title="Time offset">
+<i class="glyphicon glyphicon-question-sign"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+  <legend>Other brokenness</legend>
+  <div class="form-group">
+    <input disabled="disabled" id="comments" name="choice" onchange="formitems(&#39;comments&#39;)" type="radio" value="comments">
+    <label for="comments">This preview has the following issues not covered by the above:</label>
+    <br>
+    <textarea class="form-control" disabled="disabled" id="comment_text" name="comment_text" rows="10">
+</textarea>    <div class="well">Note: if you choose this option, your video will be marked as <q>broken</q> until the video team has had time to look at it or you set it back to preview by choosing the first option in this form.</div>
+    <div class="small">this talk's nonce is 797804777502aded470a15a11ee25a631d6b2e7913c38f4bb50538ea4dfe7cc5</div>
+  </div>
+  </fieldset>
+  <input class="btn btn-primary" type="submit" value="ok">
+</form><script>
+$(document).ready(function() {
+  $('[data-toggle="popover"]').popover({
+    container: 'body'
+  });
+});
+</script>
+
+  <p><a href="/admin/logout">Log out</a> | <a href="/volunteer/list">Volunteer review</a>
+      | <a href="/admin">Admin review: overview</a> | <a href="/admin/brokens">Admin review: broken talks</a>
+        | <a href="/admin/system">Admin: actions</a>
+  </p>
+  </div>
+  </body>
+</html>
