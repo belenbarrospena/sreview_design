@@ -12,3 +12,11 @@ img {
 .dl-horizontal dd {
   margin-left: 0;
 }
+
+.btn-block + .alert {
+  margin-top: 15px;
+}
+
+.alert {
+  padding:5px 15px;
+}
