@@ -44,3 +44,22 @@ img {
   background-color: #286090;
   border-color: #204d74;
 }
+
+.jumbotron {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.jumbotron h2 {
+  font-size: 35px;
+  margin-bottom: 40px;
+}
+
+.jumbotron ul {
+  margin-bottom: 20px;
+}
+
+.jumbotron ul > li {
+  font-size: 21px;
+  font-weight: 200;
+}

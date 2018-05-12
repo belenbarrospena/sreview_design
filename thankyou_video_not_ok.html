@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link href="css/style.css" rel="stylesheet">
+    <script>sreview_viddata = {"corrdescs":{"audio_channel":"Audio channel","length_adj":"Length adjustment","offset_audio":"Audio offset","offset_start":"Time offset"},"corrhelps":{"audio_channel":"Use 0 for the main channel, 1 for the alternate channel, or 2 for both channels mixed together","length_adj":"Set a relative adjustment value for the talk here, specified in seconds. To shorten the talk length, enter a negative value; to increase the talk length, enter a positive value","offset_audio":"Use for fixing A\/V sync issues. Positive delays audio, negative delays video. Seconds; may be fractional.","offset_start":"Use to adjust the time position of this talk. Negative values move the start to earlier in time, positive to later. Note that both start and end position are updated; if the end should not be updated, make sure to also set the \"Length adjustment\" value. Seconds; may be fractional."},"corrvals":{"audio_channel":0,"length_adj":0,"offset_audio":0,"offset_start":0},"mainlen":600,"postlen":0,"prelen":0};</script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src='/mangler.js'></script>
+  </head>
+  <body>
+  <div class="container" style="margin-bottom:40px;">
+    <h1>
+      <small style="display:block;margin-bottom:10px;">FOSDEM 2018 videos</small>
+      Intro to the Software Defined Radio track
+    </h1>
+    <script>
+    /* @licstart The following is the entire license notice for this
+     * project, including all its JavaScript.
+     *
+     * Sreview, a web-based video review and transcoding system.
+     * Copyright (c) 2016-2017 Wouter Verhelst <w@uter.be>
+     *
+     * Sreview is free software; you can redistribute it and/or modify it
+     * under the terms of the GNU Affero General Public License as
+     * published by the Free Software Foundation; either version 3 of the
+     * License, or (at your option) any later version.
+     *
+     * This program is distributed in the hope that it will be useful, but
+     * WITHOUT ANY WARRANTY; without even the implied warranty of
+     * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+     * Affero General Public License for more detilas.
+     *
+     * You should have received a copy of the GNU Affero General Public
+     * License along with Sreview. If not, see
+     * <http://www.gnu.org/licenses/>.
+     *
+     * @licend The above is the entire license notice for this project,
+     * including all its JavaScript.
+     */
+    function formitems(which) {
+    	var disableval = true;
+    	if(which === 'standard') {
+    		disableval = false;
+    	}
+    	$('#audio_channel').prop("disabled", disableval);
+    	$('#length_adj').prop("disabled", disableval);
+    	$('#offset_audio').prop("disabled", disableval);
+    	$('#offset_start').prop("disabled", disableval);
+    	if(which === 'comments') {
+    		disableval = false;
+    	} else {
+    		disableval = true;
+    	}
+    	$('#comment_text').prop("disabled", disableval);
+    	if(which === 'standard') {
+    		$('#length_adj').val(sreview_viddata.get_length_adjust());
+    		$('#offset_start').val(sreview_viddata.get_start_offset());
+    	}
+    }
+    function setPoint(vid, startstop, time) {
+    	sreview_viddata.set_point(vid, startstop, time);
+    	$('#standard').prop("checked", true);
+    	formitems('standard');
+    };
+    function edit_offset_start(val) {
+    	sreview_viddata.set_start_offset(val);
+    };
+    function edit_length_adj(val) {
+    	sreview_viddata.set_length_adj(val);
+    };
+    </script>
+    <div class="row" style="margin-top:20px;">
+      <div class="col-sm-12">
+        <div class="jumbotron">
+          <h2>Thank you for reviewing this video!</h2>
+          <p>You have told us the video has some problems. Here is a summary of what needs fixing:</p>
+          <ul>
+            <li>The video starts too early. The new start time should be -02:45</li>
+            <li>The video finishes too late. The new end time should be -04:13</li>
+            <li>The audio channel should be changed to channel 1</li>
+          </ul>
+          <p>Don't worry if the numbers don't make much sense: the video processing scripts will know what to do.</p>
+          <p>Once we have fixed the video, <strong>we will send you an email</strong> so that you can review the changes.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </body>
+</html>
