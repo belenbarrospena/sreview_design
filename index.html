@@ -221,26 +221,49 @@
             <legend>Sound</legend>
             <div class="row">
               <div class="col-sm-6">
-                <p>The selected audio channel for this video is <strong>channel 0</strong>.</p>
-                <p>Select a different channel below and send the video review to FOSDEM. We will change the audio channel and email you another "review video" request so that you can test the new audio channel.</p>
+                <p>Listen to a preview of all available sound channels, and select the best one.</p>
               </div>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="audio_channel" id="audio_channel" value="0" checked>
+                <input type="radio" name="audio_channel" id="audio_channel_0" value="0" checked>
                 Audio channel 0
+                <img src="audio_player.png" class="image-responsive audio_player">
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="audio_channel" id="audio_channel" value="1">
+                <input type="radio" name="audio_channel" id="audio_channel_1" value="1">
                 Audio channel 1
+                <img src="audio_player.png" class="image-responsive audio_player">
               </label>
             </div>
             <div class="radio">
               <label>
-                <input type="radio" name="audio_channel" id="audio_channel" value="2">
+                <input type="radio" name="audio_channel" id="audio_channel_2" value="2">
                 Audio channel 2
+                <img src="audio_player.png" class="image-responsive audio_player">
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="audio_channel" id="audio_channel_null" value="3">
+                There is no sound in any channel
+                <div id="no_audio" style="display:none;">
+                  <h5 style="margin-top:15px;">What would you like to do?</h5>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="no_audio_options" id="yes_publish" value="yes" checked>
+                      Publish the video any way (at least people can see the slides)
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="no_audio_options" id="no_publish" value="no">
+                      Don't publish the video
+                    </label>
+                  </div>
+                </div>
               </label>
             </div>
           </fieldset>
@@ -329,6 +352,16 @@ $(document).ready(function() {
       $(".alert-success").fadeOut();
       $(".alert-success").html("<strong>New start time set</strong><p>If you are curious, the new video times are: XXXXX</p>");
       $(".alert-success").fadeIn();
+    });
+
+    // show / hide the no audio options
+    $("input[name=audio_channel]").click(function() {
+      if ($("input[name=audio_channel]:checked").val() == "3") {
+        $("#no_audio").slideDown();
+      }
+      else {
+        $("#no_audio").slideUp();
+      }
     });
 
   });
