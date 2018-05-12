@@ -25,3 +25,22 @@ img {
   width: 90%;
   padding: 10px 0 20px 0;
 }
+
+#state_indicator {
+  margin-top: 35px;
+}
+
+#state_indicator .well {
+  text-align: center;
+}
+
+#state_indicator .well-upcoming {
+  background-color: #fff;
+  color: #999;
+}
+
+#state_indicator .well-active {
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
+}
