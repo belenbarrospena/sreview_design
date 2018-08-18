@@ -89,30 +89,43 @@
     <div class="row" id="state_indicator">
       <div class="col-sm-3">
         <div class="well well-sm">
-          1. Generating video
-          <span class="glyphicon glyphicon-ok" style="padding-left:5px;" aria-hidden="true"></span>
+          Step 1: Generating video
+          <span class="glyphicon glyphicon-ok success" style="padding-left:5px;" aria-hidden="true"></span>
         </div>
       </div>
       <div class="col-sm-3">
-        <div class="well well-sm well-active">2. Ready for review</div>
+        <div class="well well-sm well-active">Step 2: Review video</div>
       </div>
       <div class="col-sm-3">
-        <div class="well well-sm well-upcoming">3. Processing</div>
+        <div class="well well-sm well-upcoming">Step 3: Processing video</div>
       </div>
       <div class="col-sm-3">
-        <div class="well well-sm well-upcoming">4. Published</div>
+        <div class="well well-sm well-upcoming">Step 4: Video Published</div>
       </div>
     </div>
     <div class="row">
       <div class="col-sm-12">
         <h2>What to check for when reviewing this video</h2>
-        <p>When reviewing:</p>
         <ol>
           <li><strong>Check the beginning</strong> of the video to make sure it starts at the right time.</li>
           <li><strong>Check the end</strong> of the video to make sure it finishes at the right time.</li>
           <li><strong>Check the sound</strong> to make sure it's ok.</li>
         </ol>
         <p>Then answer the <a href="#big_question">How is this video</a> question at the bottom of the page.</p>
+        <p>By the way, <strong>nothing you do here will result in data loss.</strong> In fact, you can <a href="#" id="restore_original">restore the original video</a> at any time.</p>
+      </div>
+    </div>
+    <div class="row restore_original">
+      <div class="col-sm-8">
+        <div class="alert alert-warning">
+          <h3>Restore the original video</h3>
+          <p>What you are about to do will <strong>remove all changes</strong> made to this video so far, and reset it to its initial state.</p>
+          <p>That is a pretty drastic thing to do, that's why we are asking you again.</p>
+          <div>
+            <button class="btn btn-warning btn-lg">Yes, restore the original video</button>
+            <button class="btn btn-lg btn-link">No, cancel this business</button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row" style="margin-top:20px;">
@@ -188,7 +201,7 @@
                 </div>
                 <p style="margin-top:20px;">Find the correct start time, pause the video and click the big green button.</p>
                 <button type="button" class="btn btn-success btn-lg btn-block">Set new start time</button>
-                <div class="alert alert-warning">
+                <div class="alert alert-warning alert_with_control">
                   <div class="checkbox">
                     <label>
                       <input type="checkbox"> The start of the talk is not in this video
@@ -226,7 +239,7 @@
                 </div>
                 <p style="margin-top:20px;">Find the correct end time, pause the video and click the big green button.</p>
                 <button type="button" class="btn btn-success btn-lg btn-block">Set new end time</button>
-                <div class="alert alert-warning">
+                <div class="alert alert-warning alert_with_control">
                   <div class="checkbox">
                     <label>
                       <input type="checkbox">The end of the talk is not in this video
@@ -332,7 +345,8 @@ $(document).ready(function() {
       $(".other_brokennes").show();
       $(".btn-primary").attr('href','thankyou_other_brokeness.html');
     }
-    $("#video_starts_too_early, #video_starts_too_late, #video_ends_too_early, #video_ends_too_late").hide();
+    $("#video_starts_too_early, #video_starts_too_late, #video_ends_too_early, #video_ends_too_late, .restore_original").hide();
+
 
     // hide and show the problem reporting forms
     $("input[name=video_state]").click(function() {
@@ -399,7 +413,13 @@ $(document).ready(function() {
       }
     });
 
-    // send the submit button to the right thank you page
+    // restore video option
+    $("#restore_original").click(function(){
+      $(".restore_original").slideDown();
+    });
+    $(".restore_original .btn-link").click(function(){
+      $(".restore_original").fadeOut();
+    });
 
   });
 </script>

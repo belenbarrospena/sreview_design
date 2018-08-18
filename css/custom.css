@@ -17,7 +17,7 @@ img {
   margin-top: 15px;
 }
 
-.alert {
+.alert_with_control {
   padding:5px 15px;
 }
 
@@ -62,4 +62,12 @@ img {
 .jumbotron ul > li {
   font-size: 21px;
   font-weight: 200;
+}
+
+.restore_original {
+  margin-top: 20px;
+}
+
+.restore_original button {
+  margin-top: 20px;
 }
