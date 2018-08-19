@@ -12,9 +12,9 @@
     <script src='/mangler.js'></script>
   </head>
   <body>
-  <div class="container" style="margin-bottom:40px;">
+  <div class="container">
     <h1>
-      <small style="display:block;margin-bottom:10px;">FOSDEM 2018 videos</small>
+      <small>FOSDEM 2018 videos</small>
       Intro to the Software Defined Radio track
     </h1>
     <script>
@@ -73,9 +73,9 @@
     	sreview_viddata.set_length_adj(val);
     };
     </script>
-    <div class="row" style="margin-top:20px;">
+    <div class="row" id="talk_info">
       <div class="col-sm-12">
-        <dl class="dl-horizontal" style="margin-bottom:5px;">
+        <dl class="dl-horizontal">
           <dt>Speakers:</dt>
           <dd>Philip Balister, Martin Braun and Sylvain Munau</dd>
           <dt>Date:<dt>
@@ -90,7 +90,7 @@
       <div class="col-sm-3">
         <div class="well well-sm">
           Step 1: Generating video
-          <span class="glyphicon glyphicon-ok success" style="padding-left:5px;" aria-hidden="true"></span>
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
         </div>
       </div>
       <div class="col-sm-3">
@@ -128,7 +128,7 @@
         </div>
       </div>
     </div>
-    <div class="row" style="margin-top:20px;">
+    <div class="row" id="main_video">
       <div class="col-sm-8">
         <!--p>Main video:</p-->
         <div class="embed-responsive embed-responsive-16by9">
@@ -181,25 +181,25 @@
                 The video starts too late (the beginning of the talk is missing)
               </label>
             </div>
-            <div class="row" style="margin-top:20px;margin-bottom:20px;" id="video_starts_too_early">
+            <div class="row" id="video_starts_too_early">
               <div class="col-sm-6">
                 <div class="embed-responsive embed-responsive-16by9">
                   <img src="video_starts_too_early.png" class="image-responsive">
                   <!--video id="video-pre" class="embed-responsive-item" controls="controls" src="/video/1/2017-02-04/A/introsdr-pre.mp4?date=Thu Feb 22 18:22:09 2018"></video-->
                 </div>
-                <p style="margin-top:20px;">Find the correct start time, pause the video and click the big green button.</p>
+                <p class="help-text">Find the correct start time, pause the video and click the big green button.</p>
                 <div class="alert alert-success" role="alert" style="display:none;">
                 </div>
                 <button type="button" class="btn btn-success btn-lg btn-block" id="set_time_example">Set new start time</button>
               </div>
             </div>
-            <div class="row" style="margin-top:20px;" id="video_starts_too_late">
+            <div class="row" id="video_starts_too_late">
               <div class="col-sm-6">
                 <div class="embed-responsive embed-responsive-16by9">
                   <!--video id="video-pre" class="embed-responsive-item" controls="controls" src="/video/1/2017-02-04/A/introsdr-pre.mp4?date=Thu Feb 22 18:22:09 2018"></video-->
                   <img src="video_starts_too_late.png" class="image-responsive">
                 </div>
-                <p style="margin-top:20px;">Find the correct start time, pause the video and click the big green button.</p>
+                <p class="help-text">Find the correct start time, pause the video and click the big green button.</p>
                 <button type="button" class="btn btn-success btn-lg btn-block">Set new start time</button>
                 <div class="alert alert-warning alert_with_control">
                   <div class="checkbox">
@@ -231,13 +231,13 @@
                 The video finishes too late
               </label>
             </div>
-            <div class="row" style="margin-top:20px;" id="video_ends_too_early">
+            <div class="row" id="video_ends_too_early">
               <div class="col-sm-6">
                 <div class="embed-responsive embed-responsive-16by9">
                   <img src="video_ends_too_early.png" class="image-responsive">
                   <!--video id="video-pre" class="embed-responsive-item" controls="controls" src="/video/1/2017-02-04/A/introsdr-pre.mp4?date=Thu Feb 22 18:22:09 2018"></video-->
                 </div>
-                <p style="margin-top:20px;">Find the correct end time, pause the video and click the big green button.</p>
+                <p class="help-text">Find the correct end time, pause the video and click the big green button.</p>
                 <button type="button" class="btn btn-success btn-lg btn-block">Set new end time</button>
                 <div class="alert alert-warning alert_with_control">
                   <div class="checkbox">
@@ -248,13 +248,13 @@
                 </div>
               </div>
             </div>
-            <div class="row" style="margin-top:20px;margin-bottom:20px;" id="video_ends_too_late">
+            <div class="row" id="video_ends_too_late">
               <div class="col-sm-6">
                 <div class="embed-responsive embed-responsive-16by9">
                   <img src="video_ends_too_late.png" class="image-responsive">
                   <!--video id="video-pre" class="embed-responsive-item" controls="controls" src="/video/1/2017-02-04/A/introsdr-pre.mp4?date=Thu Feb 22 18:22:09 2018"></video-->
                 </div>
-                <p style="margin-top:20px;">Find the correct end time, pause the video and click the big green button.</p>
+                <p class="help-text">Find the correct end time, pause the video and click the big green button.</p>
                 <button type="button" class="btn btn-success btn-lg btn-block">Set new end time</button>
               </div>
             </div>
@@ -292,7 +292,7 @@
                 <input type="radio" name="audio_channel" id="audio_channel_null" value="3">
                 There is no sound in any channel
                 <div id="no_audio" style="display:none;">
-                  <h5 style="margin-top:15px;">What would you like to do?</h5>
+                  <h5>What would you like to do?</h5>
                   <div class="radio">
                     <label>
                       <input type="radio" name="no_audio_options" id="yes_publish" value="yes" checked>
@@ -319,7 +319,7 @@
             <div class="radio">
               <label>
                 <input type="radio" name="av_sync" value="av_ok" checked>
-                Audio and video are in sync: all is well.
+                Audio and video are in sync: all is well
               </label>
             </div>
             <div class="radio">
@@ -353,7 +353,7 @@
             <label>Please explain:</label>
             <textarea class="form-control" id="comment_text" name="comment_text" rows="10"></textarea>
           </fieldset>
-          <a type="button" href="#" class="btn btn-primary btn-lg" style="margin-top:30px;">Send your video review to FOSDEM</a>
+          <a id="main_action" type="button" href="#" class="btn btn-primary btn-lg">Send your video review to FOSDEM</a>
         </form>
       </div>
     </div>

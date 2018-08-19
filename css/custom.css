@@ -4,6 +4,23 @@ img {
   display: block;"
 }
 
+.container {
+  margin-bottom: 40px;
+}
+
+h1 > small {
+  display: block;
+  margin-bottom:10px;
+}
+
+#main_video, #video_starts_too_late, #av_delay, #talk_info, .help-text, #video_ends_too_early {
+  margin-top: 20px;
+}
+
+#talk_info .dl-horizontal {
+  margin-bottom: 5px;
+}
+
 .dl-horizontal dt {
   width: auto;
   padding-right: 5px;
@@ -11,6 +28,15 @@ img {
 
 .dl-horizontal dd {
   margin-left: 0;
+}
+
+#state_indicator .glyphicon {
+  padding-left: 5px;
+}
+
+#video_starts_too_early, #video_ends_too_late {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .btn-block + .alert {
@@ -80,10 +106,14 @@ img {
   margin-bottom: 10px;
 }
 
-#av_delay {
-  margin-top: 20px;
-}
-
 #av_delay .form-inline {
   width: 40%;
+}
+
+#main_action {
+  margin-top: 30px;
+}
+
+#no_audio h5 {
+  margin-top: 15px;
 }
