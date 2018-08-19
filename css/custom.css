@@ -72,6 +72,10 @@ img {
   margin-top: 20px;
 }
 
-.video_has_problems {
+.video_has_problems, .other_brokennes {
   margin-top: 20px;
+}
+
+.video_has_problems legend {
+  margin-bottom: 10px;
 }
