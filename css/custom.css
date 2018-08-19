@@ -79,3 +79,11 @@ img {
 .video_has_problems legend {
   margin-bottom: 10px;
 }
+
+#av_delay {
+  margin-top: 20px;
+}
+
+#av_delay .form-inline {
+  width: 40%;
+}

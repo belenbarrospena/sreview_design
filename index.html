@@ -309,6 +309,45 @@
               </label>
             </div>
           </fieldset>
+          <fieldset class="video_has_problems">
+            <legend>Audio/video synchronisation</legend>
+            <div class="row">
+              <div class="col-sm-6">
+                <p>Here you can report if audio and video are out of sync, as in a badly dubbed movie.</p>
+              </div>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="av_sync" value="av_ok" checked>
+                Audio and video are in sync: all is well.
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="av_sync" value="av_not_ok_audio">
+                Audio is ahead of the video
+              </label>
+            </div>
+            <div class="radio">
+              <label>
+                <input type="radio" name="av_sync" value="av_not_ok_video">
+                Video is ahead of the audio
+              </label>
+            </div>
+            <div class="row" id="av_delay">
+              <div class="col-sm-6">
+                <p>Can you tells us the time difference between the audio and the video?</p>
+                <div class="form-inline">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <input type="text" class="form-control seconds" placeholder="0.00">
+                      <div class="input-group-addon">seconds</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
           <fieldset class="other_brokennes">
             <legend>Other brokenness</legend>
             <label>Please explain:</label>
@@ -345,7 +384,10 @@ $(document).ready(function() {
       $(".other_brokennes").show();
       $(".btn-primary").attr('href','thankyou_other_brokeness.html');
     }
-    $("#video_starts_too_early, #video_starts_too_late, #video_ends_too_early, #video_ends_too_late, .restore_original").hide();
+    if ($("input[name=av_sync]:checked").val() == "av_ok") {
+      $("#av_delay").hide();
+    }
+    $("#video_starts_too_early, #video_starts_too_late, #video_ends_too_early, #video_ends_too_late, .restore_original, #av_delay").hide();
 
 
     // hide and show the problem reporting forms
@@ -419,6 +461,16 @@ $(document).ready(function() {
     });
     $(".restore_original .btn-link").click(function(){
       $(".restore_original").fadeOut();
+    });
+
+    // hide and show the a/v sync delay form
+    $("input[name=av_sync]").click(function() {
+      if ($("input[name=av_sync]:checked").val() == "av_ok") {
+        $("#av_delay").slideUp();
+      }
+      else {
+        $("#av_delay").slideDown();
+      }
     });
 
   });
