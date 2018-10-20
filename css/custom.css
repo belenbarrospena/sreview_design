@@ -17,7 +17,7 @@ h1 > small {
   margin-bottom:10px;
 }
 
-#main_video, #video_starts_too_late, #av_delay, #talk_info, .help-text, #video_ends_too_early, #instructions {
+#main_video, #video_starts_too_late, #av_delay, #talk_info, .help-text, #video_ends_too_early, #instructions, #video_state_information {
   margin-top: 20px;
 }
 
