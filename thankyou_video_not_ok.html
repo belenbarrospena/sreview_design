@@ -74,10 +74,15 @@
     	sreview_viddata.set_length_adj(val);
     };
     </script>
-    <div class="row" style="margin-top:20px;">
+    <div class="row" id="submission_notification">
       <div class="col-sm-12">
         <div class="jumbotron">
-          <h2>Thank you for reviewing this video!</h2>
+          <h2 class="text-success">
+            <span class="glyphicon glyphicon-thumbs-up"></span>
+            Thank you for sending your review
+          </h2>
+          <p>Once we have fixed the video, <strong>we will send you an email</strong> so that you can review the changes.</p>
+          <h3>Summary of video problems</h3>
           <p>You have told us the video has some problems. Here is a summary of what needs fixing:</p>
           <ul>
             <li>The video starts too early. The new start time should be -02:45</li>
@@ -85,7 +90,6 @@
             <li>The audio channel should be changed to channel 1</li>
           </ul>
           <p>Don't worry if the numbers don't make much sense: the video processing scripts will know what to do.</p>
-          <p>Once we have fixed the video, <strong>we will send you an email</strong> so that you can review the changes.</p>
         </div>
       </div>
     </div>

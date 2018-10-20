@@ -17,7 +17,7 @@ h1 > small {
   margin-bottom:10px;
 }
 
-#main_video, #video_starts_too_late, #av_delay, #talk_info, .help-text, #video_ends_too_early, #instructions, #video_state_information {
+#main_video, #video_starts_too_late, #av_delay, #talk_info, .help-text, #video_ends_too_early, #instructions, #video_state_information, #submission_notification {
   margin-top: 20px;
 }
 
@@ -55,11 +55,17 @@ h1 > small {
 .jumbotron {
   padding-top: 30px;
   padding-bottom: 30px;
+  background-color: transparent;
+  padding: 0px !important;
 }
 
 .jumbotron h2 {
   font-size: 35px;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
+}
+
+.jumbotron h3 {
+  margin-top: 30px;
 }
 
 .jumbotron ul {
