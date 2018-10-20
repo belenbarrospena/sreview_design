@@ -104,3 +104,12 @@ h1 > small {
 #no_audio h5 {
   margin-top: 15px;
 }
+
+.glyphicon-question-sign {
+  color: #999999;
+  margin-left: 3px;
+}
+
+a .glyphicon-question-sign:hover {
+  color: #000000;
+}
