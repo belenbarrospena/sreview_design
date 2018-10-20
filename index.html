@@ -134,13 +134,7 @@
             <div class="radio">
               <label>
                 <input type="radio" name="video_state" value="not_ok">
-                The video has problems with the start time, the end time and / or the sound
-              </label>
-            </div>
-            <div class="radio">
-              <label>
-                <input type="radio" name="video_state" value="other">
-                The video has other brokenness
+                The video has problems.
               </label>
             </div>
           </fieldset>
@@ -331,10 +325,14 @@
               </div>
             </div>
           </fieldset>
-          <fieldset class="other_brokennes">
+          <fieldset class="video_has_problems">
             <legend>Other brokenness</legend>
-            <label>Please explain:</label>
-            <textarea class="form-control" id="comment_text" name="comment_text" rows="10"></textarea>
+            <div class="row">
+              <div class="col-sm-6">
+                <label>Please explain:</label>
+                <textarea class="form-control" id="comment_text" name="comment_text" rows="5"></textarea>
+              </div>
+            </div>
           </fieldset>
           <a id="main_action" type="button" href="#" class="btn btn-primary btn-lg">Send your video review to FOSDEM</a>
         </form>
