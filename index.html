@@ -353,7 +353,7 @@
                 Yes
               </label>
             </div>
-            <div class="row">
+            <div class="row" id="other_brokennes_comment_text">
               <div class="col-sm-6">
                 <label>Please explain:</label>
                 <textarea class="form-control" id="comment_text" name="comment_text" rows="5"></textarea>
@@ -391,6 +391,9 @@ $(document).ready(function() {
     }
     if ($("input[name=av_sync]:checked").val() == "av_ok") {
       $("#av_delay").hide();
+    }
+    if ($("input[name=other_brokennes]:checked").val() == "other_brokeness_no") {
+      $("#other_brokennes_comment_text").hide();
     }
     $("#video_starts_too_early, #video_starts_too_late, #video_ends_too_early, #video_ends_too_late, .restore_original, #av_delay").hide();
 
@@ -477,6 +480,17 @@ $(document).ready(function() {
     });
 
     $('[data-toggle="popover"]').popover();
+
+    // hide and show the other brokeness text textarea
+    $("input[name=other_brokennes]").click(function() {
+      if ($("input[name=other_brokennes]:checked").val() == "other_brokeness_yes") {
+        $("#other_brokennes_comment_text").slideDown();
+      }
+      else {
+        $("#other_brokennes_comment_text").slideUp();
+      }
+
+    });
 
   });
 </script>
