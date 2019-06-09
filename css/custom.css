@@ -101,6 +101,10 @@ h1 > small {
   margin-top: 30px;
 }
 
+#edit_talk > #main_action {
+  margin-bottom: 60px;
+}
+
 #no_audio h5 {
   margin-top: 15px;
 }
@@ -112,4 +116,29 @@ h1 > small {
 
 a .glyphicon-question-sign:hover {
   color: #000000;
+}
+
+#video_overview_table, #edit_talk {
+  margin-top: 30px;
+}
+
+.edit_talk {
+  text-align: center;
+}
+
+#edit_talk .form-group {
+  margin-top:10px;
+}
+
+#edit_talk .btn-default {
+  margin-bottom: 15px;
+}
+
+.delete_action {
+  color: #ac2925;
+}
+
+.delete_action:hover {
+  color: #d43f3a;
+  decoration: underline;
 }

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit talk</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>
+            Edit talk
+          </h1>
+          <form id="edit_talk">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="talk_title">Talk title</label>
+                <input type="text" class="form-control" value="Opening Ceremony" id="talk_title">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="subtitle">Subtitle</label>
+                <textarea id="subtitle" class="form-control" rows="2"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="speaker">Speaker</label>
+                <input type="text" id="speaker" class="form-control" value="Holger Levsen, et al">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-default">
+              <span class="glyphicon glyphicon-plus"></span>
+              Add speaker
+            </button>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="description">Talk description</label>
+                <textarea id="description" class="form-control" rows="9"></textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-1">
+                <label for="start_time">Start time</label>
+                <input type="time" id="start_time" class="form-control" value="10:00">
+              </div>
+              <div class="form-group col-md-1">
+                <label for="end_time">End time</label>
+                <input type="time" id="end_time" class="form-control" value="10:15">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="track">Track</label>
+                <input type="text" id="track" class="form-control" value="DebConf19" disabled>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="room">Room</label>
+                <input type="text" id="room" class="form-control" value="Main" disabled>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="state">State</label>
+                <select class="form-control" id="state">
+                  <option>Waiting for files</option>
+                  <option>Cutting</option>
+                  <option>Generating previews</option>
+                  <option>Notification</option>
+                  <option>Preview</option>
+                  <option>Transcoding</option>
+                  <option>Uploading</option>
+                  <option selected>Done</option>
+                  <option>Broken</option>
+                  <option>Needs work</option>
+                  <option>Lost</option>
+                  <option>Ignored</option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-md-3">
+                <label for="progress">Progress</label>
+                <select class="form-control" id="progress">
+                  <option selected>Waiting</option>
+                  <option>Scheduled</option>
+                  <option>Running</option>
+                  <option>Done</option>
+                  <option>Failed</option>
+                </select>
+              </div>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Active stream
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox"> Add apology note
+              </label>
+            </div>
+            <div id="main_action">
+              <button type="submit" class="btn btn-primary btn-lg">
+                Save talk changes
+              </button>
+              <button type="button" class="btn btn-link btn-lg delete_action">Delete talk</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
