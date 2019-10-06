@@ -14,352 +14,1175 @@
       <div class="row">
         <div class="col-md-12">
           <h1>
-            <small>DebConf (8-9 June 2019)</small>
+            <small>DebConf (8-2 Feb 2019)</small>
             Video status overview
           </h1>
+
+          <nav class="navbar navbar-default table-navbar">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-5">
+                  <form class="table-search" role="search">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Find talks and speakers">
+                    </div>
+                  </form>
+                </div>
+                <div class="col-md-7">
+                  <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                      <li class="dropdown" id="date_filter">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Date <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <form>
+                              <div class="radio">
+                                <label>
+                                  <input type="radio" name="conference_dates" id="all" value="all" checked>All dates
+                                </label>
+                              </div>
+                              <div class="radio">
+                                <label>
+                                  <input type="radio" name="conference_dates" id="01Feb" value="01Feb">1 February
+                                </label>
+                              </div>
+                              <div class="radio">
+                                <label>
+                                  <input type="radio" name="conference_dates" id="02Feb" value="02Feb">2 February
+                                </label>
+                              </div>
+                            </form>
+                          </li>
+                          <li class="divider" role="separator"></li>
+                          <li>
+                            <button class="btn btn-default" type="submit">Apply</button>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="dropdown" id="room_filter">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Room <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <form>
+                              <div class="form-group">
+                                <label for="find_rooms">Select room(s):</label>
+                                <input type="text" class="form-control" id="find_rooms" placeholder="Find rooms">
+                              </div>
+                            </form>
+                            <div class="scrolling">
+                              <ul class="list-unstyled">
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">AW1.120
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">AW1.121
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">AW1.125
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">AW1.126
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Janson
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">J.1.106
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">K.1.105 (La Fontaine)
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">K.3.201
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">K.3.401
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">K.4.201
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">K.4.401
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">K.4.601
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">H.2215 (Ferrer)
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">H.1301 (Cornil)
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">H.1302 (Depage)
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">H.1308 (Rolin)
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">H.1309 (Van Rijn)
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">H.2111
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">H.2213
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">H.2214
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">H.3242
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">H.3244
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">UA2.114 (Baudoux)
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">UA2.118 (Henriot)
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">UA2.220 (Guillissen)
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">UB2.147
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">UB2.252A (Lameere)
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">UB4.132
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">UB5.132
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">UD2.119
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">UD2.120 (Chavanne)
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">UD2.208 (Decroly)
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">UD2.218A
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">UD2.Corridor
+                                    </label>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li class="divider" role="separator"></li>
+                          <li>
+                            <button class="btn btn-default" type="submit">Apply</button>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="dropdown" id="track_filter">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Track <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <form>
+                              <div class="form-group">
+                                <label for="find_tracks">Select track(s):</label>
+                                <input type="text" class="form-control" id="find_tracks" placeholder="Find tracks">
+                              </div>
+                            </form>
+                            <div class="scrolling">
+                              <ul class="list-unstyled">
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Keynotes
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Communications [Main]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Databases [Main]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Hardware [Main]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Miscellaneous [Main]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Online Privacy [Main]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Performance [Main]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Storage [Main]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">.NET and TypeScript [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Ada [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">BSD [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Blockchain and Crypto Currencies [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">CAD and Open Hardware [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Collaborative Information and Content Management Applications [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Community [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Containers [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">DNS [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Decentralized Internet and Privacy [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Distributions [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Free Java [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Free Software Radio [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Free Tools and Editors [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Geospatial [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Go [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Graph Processing [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Graphics [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">HPC, Big Data and Data Science [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Hardware Enablement [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Infra Management [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Javascript [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">LLVM [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Legal and Policy Issues [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">ML on Code [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Microkernels and Component-based OS [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Minimalistic Languages [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Monitoring and Observability [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Mozilla [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">MySQL, MariaDB and Friends [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Open Document Editors [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Open Media [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Open Source Design [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">PHP &amp; Friends [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">PostgreSQL [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Python [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Quantum Computing [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">RISC-V [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Real Time Communications (RTC) [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Retrocomputing [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Rust [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Search [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Security [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Software Defined Networking [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Software Defined Storage [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Tool the Docs [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Virtualization and IaaS [Devroom]
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Lightning talks
+                                    </label>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                            <li class="divider" role="separator"></li>
+                            <li>
+                              <button class="btn btn-default" type="submit">Apply</button>
+                            </li>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="dropdown" id="state_filter">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">State <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <form>
+                              <div class="form-group">
+                                <label for="find_states">Select state(s):</label>
+                                <input type="text" class="form-control" id="find_states" placeholder="Find states">
+                              </div>
+                            </form>
+                            <div class="scrolling">
+                              <ul class="list-unstyled">
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Waiting for files
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Cutting
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Generating previews
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Notification
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Preview
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Transcoding
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Uploading
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Done
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Broken
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Needs work
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Lost
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Ignored
+                                    </label>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li class="divider" role="separator"></li>
+                          <li>
+                            <button class="btn btn-default" type="submit">Apply</button>
+                          </li>
+                        </ul>
+                      </li>
+                      <li class="dropdown" id="progress_filter">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Progress <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <div class="scrolling">
+                              <ul class="list-unstyled">
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Waiting
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Scheduled
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Running
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Done
+                                    </label>
+                                  </div>
+                                </li>
+                                <li>
+                                  <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox">Failed
+                                    </label>
+                                  </div>
+                                </li>
+                              </ul>
+                            </div>
+                          </li>
+                          <li class="divider" role="separator"></li>
+                          <li>
+                            <button class="btn btn-default" type="submit">Apply</button>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <button type="button" class="btn btn-link navbar-btn navbar-right">
+                      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                      Add talk</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </nav>
+
           <table class="table" id="video_overview_table">
             <thead>
-              <th></th>
-              <th class="col-md-5">Talk</th>
-              <th>Speakers</th>
-              <th>Date</th>
-              <th>Starts</th>
-              <th>Ends</th>
+              <th class="col-md-3">Talk</th>
+              <th>Speaker</th>
+              <th class="col-md-1">Date</th>
+              <th class="col-md-1">Time</th>
+              <th class="col-md-2">Room</th>
+              <th class="col-md-2">Track</th>
               <th>State</th>
               <th>Progress</th>
             </thead>
             <tbody>
               <tr>
-                <td class="edit_talk">
-                  <a href="edit_talk.html" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
-                  <a href="#">Opening Ceremony</a>
+                  <a href="edit_talk.html">Opening Ceremony</a>
                 </td>
-                <td>Holger Levsen, et al.</td>
-                <td>8 June</td>
-                <td>10:00</td>
-                <td>10:15</td>
+                <td>Holger Levsen</td>
+                <td>1 Feb</td>
+                <td>10:00 - 10:15</td>
+                <td>Janson</td>
+                <td>Communications [Main]</td>
                 <td>Done</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Open geographic data for humanitarian actions</a>
                 </td>
                 <td>Felix Delattre</td>
-                <td>8 June</td>
-                <td>10:15</td>
-                <td>11:00</td>
+                <td>1 Feb</td>
+                <td>10:15 - 11:00</td>
+                <td>K.1.105 (La Fontaine)</td>
+                <td>Databases [Main]</td>
                 <td>Done</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Salsa CI</a>
                 </td>
-                <td>Augustin Henze and Iñaki Malerba</td>
-                <td>8 June</td>
-                <td>11:00</td>
-                <td>11:45</td>
+                <td>Augustin Henze</td>
+                <td>1 Feb</td>
+                <td>11:00 - 11:45</td>
+                <td>H.2215 (Ferrer)</td>
+                <td>Blockchain and Crypto Currencies [Devroom]</td>
                 <td>Done</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">How sipgate uses Debian and Open Source in general</a>
                 </td>
-                <td>Rudolph Bott and Cenk Kücük</td>
-                <td>8 June</td>
-                <td>12:00</td>
-                <td>12:45</td>
+                <td>Rudolph Bott</td>
+                <td>1 Feb</td>
+                <td>12:00 - 12:45</td>
+                <td>K.3.401</td>
+                <td>Lightning Talks</td>
                 <td>Done</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Building reproducible builds into apt with in-toto</a>
                 </td>
                 <td>Lukas Puehringer</td>
-                <td>8 June</td>
-                <td>15:00</td>
-                <td>15:20</td>
+                <td>1 Feb</td>
+                <td>15:00 - 15:20</td>
+                <td>K.3.401</td>
+                <td>Distributions [Devroom]</td>
                 <td>Done</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Reproducible Builds</a>
                 </td>
                 <td>Holger Levsen</td>
-                <td>8 June</td>
-                <td>15:30</td>
-                <td>15:50</td>
+                <td>1 Feb</td>
+                <td>15:30 - 15:50</td>
+                <td>UD2.119</td>
+                <td>Free Tools and Editors [Devroom]</td>
                 <td>Done</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Cool and not so well known features in Salsa</a>
                 </td>
                 <td>Alexander Wirt</td>
-                <td>8 June</td>
-                <td>16:00</td>
-                <td>16:45</td>
+                <td>1 Feb</td>
+                <td>16:00 - 16:45</td>
+                <td>K.4.201</td>
+                <td>Minimalistic Languages [Devroom]</td>
                 <td>Done</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Migration to testing and visualization</a>
                 </td>
                 <td>Cyril Brulebois</td>
-                <td>8 June</td>
-                <td>17:30</td>
-                <td>18:15</td>
+                <td>1 Feb</td>
+                <td>17:30 - 18:15</td>
+                <td>UA2.220 (Guillissen)</td>
+                <td>Legal and Policy Issues [Devroom]</td>
                 <td>Done</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Building an entire Debian derivative from Git</a>
                 </td>
                 <td>Andrej Shadura</td>
-                <td>8 June</td>
-                <td>18:30</td>
-                <td>19:15</td>
+                <td>1 Feb</td>
+                <td>18:30 - 19:15</td>
+                <td>UB2.252A (Lameere)</td>
+                <td>Monitoring and Observability [Devroom]</td>
                 <td>Done</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Packstation</a>
                 </td>
                 <td>Hilko Bengen</td>
-                <td>9 June</td>
-                <td>10:00</td>
-                <td>10:20</td>
+                <td>2 Feb</td>
+                <td>10:00 - 10:20</td>
+                <td>UB4.132</td>
+                <td>Certification Exams</td>
                 <td>Waiting for files</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Skolelinux and Debian Edu</a>
                 </td>
                 <td>Dominik George</td>
-                <td>9 June</td>
-                <td>10:25</td>
-                <td>10:45</td>
+                <td>2 Feb</td>
+                <td>10:25 - 10:45</td>
+                <td>UB5.132</td>
+                <td>Community [Devroom]</td>
                 <td>Waiting for files</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Demonstrating and Testing an Embedded Hypervisor with Debian</a>
                 </td>
                 <td>Jan Kiszka</td>
-                <td>9 June</td>
-                <td>11:00</td>
-                <td>11:45</td>
+                <td>2 Feb</td>
+                <td>11:00 - 11:45</td>
+                <td>UA2.118 (Henriot)</td>
+                <td>MySQL, MariaDB and Friends [Devroom]</td>
                 <td>Waiting for files</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Challenges in herding a vast number of packages between the Debian and PostgreSQL ecosystems</a>
                 </td>
                 <td>Christoph Berg</td>
-                <td>9 June</td>
-                <td>12:00</td>
-                <td>12:45</td>
+                <td>2 Feb</td>
+                <td>12:00 - 12:45</td>
+                <td>K.4.201</td>
+                <td>LLVM [Devroom]</td>
                 <td>Waiting for files</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Lightning Talks / Live Demos</a>
                 </td>
                 <td></td>
-                <td>9 June</td>
-                <td>15:00</td>
-                <td>15:45</td>
+                <td>2 Feb</td>
+                <td>15:00 - 15:45</td>
+                <td>W1.126</td>
+                <td>Geospatial [Devroom]</td>
                 <td>Waiting for files</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Hacking Work</a>
                 </td>
                 <td>Rudolph Bott</td>
-                <td>9 June</td>
-                <td>16:00</td>
-                <td>16:45</td>
+                <td>2 Feb</td>
+                <td>16:00 - 16:45</td>
+                <td>H.1308 (Rolin)</td>
+                <td>Javascript [Devroom]</td>
                 <td>Waiting for files</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">LUKS & Full Disk Encryption</a>
                 </td>
                 <td>Cyril Brulebois</td>
-                <td>9 June</td>
-                <td>17:30</td>
-                <td>17:50</td>
+                <td>2 Feb</td>
+                <td>17:30 - 17:50</td>
+                <td>AW1.125</td>
+                <td>Ada [Devroom]</td>
                 <td>Waiting for files</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Why would a python programmer learn rust when there are no jobs in it</a>
                 </td>
                 <td>Owen Synge</td>
-                <td>9 June</td>
-                <td>18:00</td>
-                <td>18:20</td>
+                <td>2 Feb</td>
+                <td>18:00 - 18:20</td>
+                <td>AW1.125</td>
+                <td>CAD and Open Hardware [Devroom]</td>
                 <td>Waiting for files</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Let's go to DebConf19 in Brazil!</a>
                 </td>
                 <td>Paulo Henrique de Lima Santana</td>
-                <td>9 June</td>
-                <td>18:30</td>
-                <td>18:50</td>
+                <td>2 Feb</td>
+                <td>18:30 - 18:50</td>
+                <td>UD2.119</td>
+                <td>Collaborative Information and Content Management Applications [Devroom]</td>
                 <td>Waiting for files</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Mini-DebConf 2020 Germany?</a>
                 </td>
                 <td>Holger Levsen</td>
-                <td>9 June</td>
-                <td>19:00</td>
-                <td>19:15</td>
+                <td>2 Feb</td>
+                <td>19:00 - 19:15</td>
+                <td>UD2.119</td>
+                <td>Tool the Docs [Devroom]</td>
                 <td>Waiting for files</td>
                 <td>Waiting</td>
               </tr>
               <tr>
-                <td class="edit_talk">
-                  <a href="#" data-toggle="tooltip" data-placement="top" title="Edit talk">
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  </a>
-                </td>
                 <td>
                   <a href="#">Closing ceremony</a>
                 </td>
-                <td>Holger Levsen, et al.</td>
-                <td>9 June</td>
-                <td>19:15</td>
-                <td>19:30</td>
+                <td>Holger Levsen</td>
+                <td>2 Feb</td>
+                <td>19:15 - 19:30</td>
+                <td>UD2.208 (Decroly)</td>
+                <td>Rust [Devroom]</td>
                 <td>Waiting for files</td>
                 <td>Waiting</td>
               </tr>
             </tbody>
-          <table>
+          </table>
         </div>
       </div>
     </div>
     <script>
-    $(document).ready(function() {
-      $('[data-toggle="tooltip"]').tooltip({
-        container: 'body'
+      $(document).ready(function() {
+
+        $('[data-toggle="tooltip"]').tooltip({
+          container: 'body'
+        });
+
+        //stop the filters from closing on clicking their checkboxes
+        $('.dropdown-menu .checkbox').click(function(e) {
+          e.stopPropagation();
+        });
+
+        //find rooms filter as you type
+        $('#find_rooms, #find_tracks, #find_states').keyup(function(){
+         	var valThis = $(this).val().toLowerCase();
+          var no_matches = 0;
+  				$('.scrolling label').each(function(){
+  					var text = $(this).text().toLowerCase();
+  					var match = text.indexOf(valThis);
+  					if (match >= 0) {
+  						$(this).parent().show();
+              no_matches++;
+  					}
+  					else {
+  						$(this).parent().hide();
+  					}
+  				});
+      	});
+
       });
-    });
     </script>
   </body>
 </html>

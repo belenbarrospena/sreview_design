@@ -118,7 +118,7 @@ a .glyphicon-question-sign:hover {
   color: #000000;
 }
 
-#video_overview_table, #edit_talk {
+#edit_talk {
   margin-top: 30px;
 }
 
@@ -141,4 +141,41 @@ a .glyphicon-question-sign:hover {
 .delete_action:hover {
   color: #d43f3a;
   decoration: underline;
+}
+
+.table-navbar {
+  background-color: transparent;
+  margin-top: 30px;
+}
+
+.table-search {
+  padding:10px 15px;
+  margin-right:-15px;
+  margin-left:-15px;
+}
+
+.table-search > .form-group {
+  margin-bottom: 0;
+}
+
+.navbar-nav > li > a {
+  padding-top: 17px;
+}
+
+.navbar-btn {
+  margin-top: 10px;
+}
+
+.navbar-nav .dropdown-menu {
+  padding: 15px;
+}
+
+.scrolling {
+  overflow: auto;
+  max-height: 170px;
+  margin-bottom: 20px;
+}
+
+#room_filter > .dropdown-menu, #track_filter > .dropdown-menu, #state_filter > .dropdown-menu {
+  min-width: 300px;
 }
