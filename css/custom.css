@@ -149,7 +149,7 @@ a .glyphicon-question-sign:hover {
 }
 
 .table-search {
-  padding:10px 15px;
+  padding:9px 15px;
   margin-right:-15px;
   margin-left:-15px;
 }
@@ -158,13 +158,14 @@ a .glyphicon-question-sign:hover {
   margin-bottom: 0;
 }
 
-.navbar-nav > li > a {
-  padding-top: 17px;
+/*.navbar-nav > li > a {
+  padding-top: 14px;
+  padding-bottom: 15px;
 }
 
 .navbar-btn {
   margin-top: 10px;
-}
+}*/
 
 .navbar-nav .dropdown-menu {
   padding: 15px;
@@ -178,4 +179,8 @@ a .glyphicon-question-sign:hover {
 
 #room_filter > .dropdown-menu, #track_filter > .dropdown-menu, #state_filter > .dropdown-menu {
   min-width: 300px;
+}
+
+.filters h5 {
+  margin-top: 20px;
 }

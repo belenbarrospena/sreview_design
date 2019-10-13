@@ -24,13 +24,14 @@
                 <div class="col-md-5">
                   <form class="table-search" role="search">
                     <div class="form-group">
-                      <input type="text" class="form-control" placeholder="Find talks and speakers">
+                      <input type="text" class="form-control" placeholder="Find talks and speakers" id="find_talks_speakers">
                     </div>
                   </form>
                 </div>
                 <div class="col-md-7">
                   <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav">
+                    <p class="navbar-text">Filter by:</p>
+                    <ul class="nav navbar-nav filters">
                       <li class="dropdown" id="date_filter">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Date <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -60,16 +61,22 @@
                         </ul>
                       </li>
                       <li class="dropdown" id="room_filter">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Room <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                          <button style="display:none;" class="btn btn-link btn-xs" title="Clear room filter" id="clear_room_filter">
+                            <span class="glyphicon glyphicon-remove-sign"></span>
+                          </button>
+                          Room <span class="caret"></span>
+                        </a>
                         <ul class="dropdown-menu">
                           <li>
                             <form>
                               <div class="form-group">
-                                <label for="find_rooms">Select room(s):</label>
                                 <input type="text" class="form-control" id="find_rooms" placeholder="Find rooms">
                               </div>
                             </form>
+                            <h5>Select room(s):</h5>
                             <div class="scrolling">
+                              <div class="alert alert-warning" style="display:none;" role="alert">No rooms found</div>
                               <ul class="list-unstyled">
                                 <li>
                                   <div class="checkbox">
@@ -314,20 +321,24 @@
                           </li>
                           <li class="divider" role="separator"></li>
                           <li>
-                            <button class="btn btn-default" type="submit">Apply</button>
+                            <button class="btn btn-default disabled" type="submit">Apply</button>
                           </li>
                         </ul>
                       </li>
                       <li class="dropdown" id="track_filter">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Track <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                          <button style="display:none;" class="btn btn-link btn-xs" title="Clear track filter" id="clear_track_filter">
+                            <span class="glyphicon glyphicon-remove-sign"></span>
+                          </button>
+                          Track <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                           <li>
                             <form>
                               <div class="form-group">
-                                <label for="find_tracks">Select track(s):</label>
                                 <input type="text" class="form-control" id="find_tracks" placeholder="Find tracks">
                               </div>
                             </form>
+                            <h5>Select track(s):</h5>
                             <div class="scrolling">
                               <ul class="list-unstyled">
                                 <li>
@@ -726,7 +737,8 @@
                             </div>
                             <li class="divider" role="separator"></li>
                             <li>
-                              <button class="btn btn-default" type="submit">Apply</button>
+                              <button class="btn btn-default disabled" type="submit">Apply</button>
+                              <button style="display:none;" class="btn btn-link">Clear filter</button>
                             </li>
                           </li>
                         </ul>
@@ -737,10 +749,10 @@
                           <li>
                             <form>
                               <div class="form-group">
-                                <label for="find_states">Select state(s):</label>
                                 <input type="text" class="form-control" id="find_states" placeholder="Find states">
                               </div>
                             </form>
+                            <h5>Select state(s):</h5>
                             <div class="scrolling">
                               <ul class="list-unstyled">
                                 <li>
@@ -832,7 +844,7 @@
                           </li>
                           <li class="divider" role="separator"></li>
                           <li>
-                            <button class="btn btn-default" type="submit">Apply</button>
+                            <button class="btn btn-default disabled" type="submit">Apply</button>
                           </li>
                         </ul>
                       </li>
@@ -882,7 +894,7 @@
                           </li>
                           <li class="divider" role="separator"></li>
                           <li>
-                            <button class="btn btn-default" type="submit">Apply</button>
+                            <button class="btn btn-default disabled" type="submit">Apply</button>
                           </li>
                         </ul>
                       </li>
@@ -1165,7 +1177,7 @@
           e.stopPropagation();
         });
 
-        //find rooms filter as you type
+        //filter as you type for rooms, tracks and states filters
         $('#find_rooms, #find_tracks, #find_states').keyup(function(){
          	var valThis = $(this).val().toLowerCase();
           var no_matches = 0;
@@ -1179,8 +1191,125 @@
   					else {
   						$(this).parent().hide();
   					}
+            if (no_matches == 0) {
+              $('.scrolling .alert').show();
+            }
+            else {
+              $('.scrolling .alert').hide();
+            }
   				});
       	});
+
+        //disable filters when you search for talks or speakers
+        $('#find_talks_speakers').keyup(function(){
+          var valThis = $(this).val();
+          if (valThis) {
+            $(".filters > li").addClass("disabled");
+            $(".navbar-text").css("color","#ccc")
+          }
+          else {
+            $(".filters > li").removeClass("disabled");
+            $(".navbar-text").css("color","#777");
+          }
+        });
+
+        //initialise clear filter tooltips
+        $('#clear_room_filter, #clear_track_filter').tooltip();
+
+        //enable 'apply' in room filter when value(s) selected
+        $('#room_filter input:checkbox').change(function(){
+          var no_checked = 0;
+          $('#room_filter input:checkbox').each(function(){
+            if ( $(this).is(':checked') ){
+              no_checked++;
+            }
+            if ( no_checked == 0 ) {
+              $('#room_filter .btn-default').addClass("disabled");
+            }
+            else {
+              $('#room_filter .btn-default').removeClass("disabled");
+            }
+          });
+        });
+
+        //apply room filter
+        $("#room_filter .btn-default").click(function(){
+          $("tbody").fadeOut();
+          $("#find_talks_speakers").prop("disabled", true);
+          $("#room_filter").css("background-color","#eee");
+          $("#room_filter .btn-xs").fadeIn();
+          $("tbody").fadeIn();
+        });
+
+        //clear room filter
+        $("#room_filter .btn-xs").click(function(e){
+          e.stopPropagation();
+          $("tbody").fadeOut();
+          $(this).fadeOut();
+          $("#room_filter").css("background-color","transparent");
+          $("tbody").fadeIn();
+          disable_table_search();
+        });
+
+        //enable 'apply' in track filter when value(s) selected
+        $('#track_filter input:checkbox').change(function(){
+          var no_checked = 0;
+          $('#track_filter input:checkbox').each(function(){
+            if ( $(this).is(':checked') ){
+              no_checked++;
+            }
+            if ( no_checked == 0 ) {
+              $('#track_filter .btn-default').addClass("disabled");
+            }
+            else {
+              $('#track_filter .btn-default').removeClass("disabled");
+            }
+          });
+        });
+
+        //apply track filter
+        $("#track_filter .btn-default").click(function(){
+          $("tbody").fadeOut();
+          $("#find_talks_speakers").prop("disabled", true);
+          $("#track_filter").css("background-color","#eee");
+          $("#track_filter .btn-xs, #track_filter .btn-link").fadeIn();
+          $("tbody").fadeIn();
+        });
+
+        //clear track filter
+        $("#track_filter .btn-xs").click(function(e){
+          e.stopPropagation();
+          $("tbody").fadeOut();
+          $(this).fadeOut();
+          $("#track_filter .btn-link").fadeOut();
+          $("#track_filter").css("background-color","transparent");
+          $("tbody").fadeIn();
+          $("#track_filter input:checkbox").each(function(){
+            $(this).prop("checked",false);
+          });
+          $("#track_filter .btn-default").addClass("disabled");
+          $("#find_tracks").val("");
+          disable_table_search();
+        });
+
+        //disable 'find talks and speakers' while filters applied
+        function disable_table_search(){
+          var count = 0;
+          $(".btn-xs").each(function(){
+            if($(this).is(":visible"))
+              {
+                count++;
+              }
+          });
+          if (count == 1){
+            $("#find_talks_speakers").prop("disabled", false);
+          }
+          else {
+            $("#find_talks_speakers").prop("disabled", true);
+          }
+        }
+
+
 
       });
     </script>
