@@ -181,6 +181,6 @@ a .glyphicon-question-sign:hover {
   min-width: 300px;
 }
 
-.filters h5 {
+#room_filter h5, #track_filter h5, #state_filter h5 {
   margin-top: 20px;
 }
